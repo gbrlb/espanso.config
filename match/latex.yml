@@ -1,0 +1,15 @@
+name: latex
+author: gbrlb <https://github.com/gbrlb>
+
+matches:
+  - trigger: ":ls"
+    replace: "\\lstinline{$|$}"
+  - trigger: ":ref"
+    replace: "\\autoref{$|$}"
+  - trigger: ":gz"
+    replace: Gazebo
+  - trigger: ":rg"
+    replace: robo-gym
+  - trigger: ":oai"
+    replace: OpenAI Gym
+

@@ -1,0 +1,15 @@
+name: symbols
+author: gbrlb <https://github.com/gbrlb>
+
+matches:
+  - trigger: ":to"
+    replace: →
+
+  - trigger: ":gets"
+    replace: ←
+
+  - trigger: ":up"
+    replace: ↑
+
+  - trigger: ":down"
+    replace: ↓

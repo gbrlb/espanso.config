@@ -1,0 +1,7 @@
+name: programing
+author: gbrlb <https://github.com/gbrlb>
+
+matches:
+  - trigger: ":print"
+    replace: print(f"{$|$}")
+

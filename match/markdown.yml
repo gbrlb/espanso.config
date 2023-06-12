@@ -1,0 +1,45 @@
+name: obsidian-md
+author: gbrlb <https://github.com/gbrlb>
+
+matches:
+  - regex: ":#(?P<n>.)"
+    label: "generate n #"
+    replace: "{{output}} "
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "echo | awk 'BEGIN { ORS=\"\"}; {for (i = 1; i <= {{n}}; i++) print \"#\"}'"
+          
+  - regex: ":l(?P<n>.)"
+    label: "generate empty new lines"
+    replace: |
+      
+      {{output}}
+      
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "for i in `seq 1 {{n}}`; do echo -e ' '; done"
+
+  - trigger: ":qt"
+    replace: "> [!quote]\n"    
+    
+  - trigger: ":cpp"
+    replace: "```cpp\n{{clipboard}}$|$\n```"
+    vars:
+      - name: "clipboard"
+        type: "clipboard"
+    
+  - trigger: ":py"
+    replace: "```python\n{{clipboard}}$|$\n```"
+    vars:
+      - name: "clipboard"
+        type: "clipboard"
+
+  - trigger: ":yaml"
+    replace: "```yaml\n{{clipboard}}$|$\n```"
+    vars:
+      - name: "clipboard"
+        type: "clipboard"
